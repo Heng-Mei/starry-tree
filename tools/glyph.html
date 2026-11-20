@@ -1,0 +1,35 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>glyph</title>
+<style>body { margin: 0; background: #1b2a20; } canvas { display: block; }</style>
+<canvas width="1000" height="560"></canvas>
+<script type="module">
+  import { skeleton, glyphDabs } from '../js/glyph.js';
+  import { rng, TREE } from '../js/layout.js';
+  const ctx = document.querySelector('canvas').getContext('2d');
+  const S = 480;
+  // left: skeletons with brush width, right: the dabs as placed on the tree-axis plane
+  skeleton().forEach((paths, ci) => {
+    for (const pts of paths) {
+      for (const p of pts) {
+        ctx.fillStyle = '#f2c94c';
+        ctx.beginPath();
+        ctx.arc(20 + p.x * S * 0.5 + ci * 250, 40 + p.y * S * 0.5, (p.w * S * 0.5) / 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  });
+  const dabs = glyphDabs(rng(1));
+  const k = 1100;
+  for (const d of dabs) {
+    const x = 760 + (d.q[0] - TREE.x) * k, y = 540 - (d.q[1] - 0.12) * k;
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(-Math.atan2(d.t[1], d.t[0]));
+    ctx.fillStyle = 'rgba(245, 217, 122, 0.85)';
+    ctx.beginPath();
+    ctx.ellipse(0, 0, (d.len * k) / 2, (d.wid * k) / 2, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+</script>

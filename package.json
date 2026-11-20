@@ -1,0 +1,8 @@
+{
+  "name": "starry-tree",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/glyph.test.mjs"
+  }
+}
