@@ -1,7 +1,7 @@
 // Painting coordinates: x right, y up, the canvas is [0, PW] x [0, 1] on the plane z = 0.
 export const PW = 1280 / 1013;
 export const EYE = [PW / 2, 0.5, 2.4];
-export const TREE = { x: 0.34, z: 0.25, base: -0.03, height: 0.93, r0: 0.15 };
+export const TREE = { x: PW / 2, z: 0.25, base: -0.03, height: 0.87, r0: 0.15 };
 export const THETA = (140 * Math.PI) / 180;
 
 export function radiusAt(y) {
