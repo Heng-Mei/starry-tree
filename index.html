@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0d1426" />
+    <title>星夜</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #0d1426; overflow: hidden; overscroll-behavior: none; }
+      canvas {
+        position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; display: block;
+        touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+      }
+      canvas:active { cursor: grabbing; }
+      .vignette { position: fixed; inset: 0; pointer-events: none; box-shadow: inset 0 0 18vmin rgba(5, 8, 20, 0.55); }
+    </style>
+    <script type="importmap">{ "imports": { "three": "./vendor/three.module.js" } }</script>
+  </head>
+  <body>
+    <canvas></canvas>
+    <div class="vignette"></div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
